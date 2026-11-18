@@ -1,0 +1,6 @@
+{
+  "name": "MoldWatch — Scheduled Multi-Screen Monitoring",
+  "description": "Industrial injection molding monitoring system for scheduled multi-screen HMI photography, OCR verification, deviation comparison, and immutable compliance traceability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

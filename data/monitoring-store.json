@@ -1,0 +1,5364 @@
+{
+  "scheduleConfig": {
+    "intervalHours": 2,
+    "gracePeriodMinutes": 20,
+    "shifts": [
+      {
+        "id": "SH-A",
+        "name": "Shift A (Day)",
+        "startTime": "06:00",
+        "endTime": "14:00",
+        "active": true
+      },
+      {
+        "id": "SH-B",
+        "name": "Shift B (Afternoon)",
+        "startTime": "14:00",
+        "endTime": "22:00",
+        "active": true
+      },
+      {
+        "id": "SH-C",
+        "name": "Shift C (Night)",
+        "startTime": "22:00",
+        "endTime": "06:00",
+        "active": false
+      }
+    ],
+    "timeSlots": [
+      "06:00",
+      "08:00",
+      "10:00",
+      "12:00",
+      "14:00",
+      "16:00",
+      "18:00",
+      "20:00"
+    ],
+    "updatedBy": "Dr. Sarah Lindqvist",
+    "updatedAt": "2026-11-18T07:30:04"
+  },
+  "machines": [
+    {
+      "id": "M-HM01",
+      "code": "HM-001",
+      "name": "Haitian M01",
+      "controllerModel": "Haitian TechMotion 320T (KEBA)",
+      "location": "Bay A · Line 01",
+      "currentProduct": "Plastic Bumper",
+      "currentMold": "Bumper Mold 01",
+      "assignedOperator": "Marcus Chen",
+      "shift": "Shift A (06:00–14:00)",
+      "requiredScreenIds": [
+        "SCR-INJ",
+        "SCR-TEMP",
+        "SCR-HOLD",
+        "SCR-COOL",
+        "SCR-PLAS"
+      ],
+      "approvedRecipeId": "REC-BUMPER-01"
+    },
+    {
+      "id": "M-HM02",
+      "code": "HM-002",
+      "name": "Haitian M02",
+      "controllerModel": "Haitian Mars III 450T (Techmation)",
+      "location": "Bay A · Line 02",
+      "currentProduct": "Door Trim Panel",
+      "currentMold": "Trim Mold 04",
+      "assignedOperator": "Elena Rostova",
+      "shift": "Shift A (06:00–14:00)",
+      "requiredScreenIds": [
+        "SCR-INJ",
+        "SCR-TEMP",
+        "SCR-HOLD",
+        "SCR-COOL",
+        "SCR-PLAS",
+        "SCR-HOT"
+      ],
+      "approvedRecipeId": "REC-TRIM-04"
+    },
+    {
+      "id": "M-EM03",
+      "code": "EM-003",
+      "name": "Engel E03",
+      "controllerModel": "Engel CC300 e-mac 180",
+      "location": "Bay B · Line 03",
+      "currentProduct": "Airbag Housing",
+      "currentMold": "Housing Mold 02",
+      "assignedOperator": "David Kim",
+      "shift": "Shift A (06:00–14:00)",
+      "requiredScreenIds": [
+        "SCR-INJ",
+        "SCR-TEMP",
+        "SCR-HOLD",
+        "SCR-COOL"
+      ],
+      "approvedRecipeId": "REC-HOUSING-02"
+    },
+    {
+      "id": "M-KM04",
+      "code": "KM-004",
+      "name": "KraussMaffei KM04",
+      "controllerModel": "KraussMaffei MC6 PX-200",
+      "location": "Bay B · Line 04",
+      "currentProduct": "Instrument Bezel",
+      "currentMold": "Bezel Mold 07",
+      "assignedOperator": "Priya Nair",
+      "shift": "Shift B (14:00–22:00)",
+      "requiredScreenIds": [
+        "SCR-INJ",
+        "SCR-TEMP",
+        "SCR-HOLD",
+        "SCR-COOL",
+        "SCR-PLAS"
+      ],
+      "approvedRecipeId": "REC-BEZEL-07"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "REC-BUMPER-01",
+      "name": "PP-EPDM Bumper Spec v3.2",
+      "machineId": "M-HM01",
+      "product": "Plastic Bumper",
+      "mold": "Bumper Mold 01",
+      "version": "3.2",
+      "approvedBy": "Dr. Sarah Lindqvist (Process Eng)",
+      "approvedAt": "2026-10-12T10:00:00",
+      "parameters": {
+        "injection_pressure": {
+          "target": 115,
+          "min": 110,
+          "max": 120,
+          "unit": "MPa",
+          "label": "Injection Pressure"
+        },
+        "injection_speed": {
+          "target": 70,
+          "min": 65,
+          "max": 75,
+          "unit": "mm/s",
+          "label": "Injection Speed"
+        },
+        "vp_switchover": {
+          "target": 18,
+          "min": 16.5,
+          "max": 19.5,
+          "unit": "mm",
+          "label": "V/P Switchover Position"
+        },
+        "shot_size": {
+          "target": 142,
+          "min": 140,
+          "max": 144,
+          "unit": "mm",
+          "label": "Shot Size"
+        },
+        "cushion": {
+          "target": 5,
+          "min": 3.5,
+          "max": 6.5,
+          "unit": "mm",
+          "label": "Cushion"
+        },
+        "temp_zone_1": {
+          "target": 215,
+          "min": 210,
+          "max": 220,
+          "unit": "°C",
+          "label": "Barrel Zone 1"
+        },
+        "temp_zone_2": {
+          "target": 225,
+          "min": 220,
+          "max": 230,
+          "unit": "°C",
+          "label": "Barrel Zone 2"
+        },
+        "temp_zone_3": {
+          "target": 230,
+          "min": 225,
+          "max": 235,
+          "unit": "°C",
+          "label": "Barrel Zone 3"
+        },
+        "temp_zone_4": {
+          "target": 235,
+          "min": 230,
+          "max": 240,
+          "unit": "°C",
+          "label": "Barrel Zone 4"
+        },
+        "nozzle_temp": {
+          "target": 240,
+          "min": 235,
+          "max": 245,
+          "unit": "°C",
+          "label": "Nozzle Temperature"
+        },
+        "oil_temp": {
+          "target": 45,
+          "min": 38,
+          "max": 50,
+          "unit": "°C",
+          "label": "Hydraulic Oil Temp"
+        },
+        "hold_pressure_1": {
+          "target": 78,
+          "min": 74,
+          "max": 82,
+          "unit": "MPa",
+          "label": "Stage 1 Hold Pressure"
+        },
+        "hold_time_1": {
+          "target": 3.5,
+          "min": 3.1,
+          "max": 3.9,
+          "unit": "s",
+          "label": "Stage 1 Hold Time"
+        },
+        "hold_pressure_2": {
+          "target": 62,
+          "min": 58,
+          "max": 66,
+          "unit": "MPa",
+          "label": "Stage 2 Hold Pressure"
+        },
+        "hold_time_2": {
+          "target": 4,
+          "min": 3.6,
+          "max": 4.4,
+          "unit": "s",
+          "label": "Stage 2 Hold Time"
+        },
+        "cooling_time": {
+          "target": 18.5,
+          "min": 17.5,
+          "max": 19.5,
+          "unit": "s",
+          "label": "Cooling Time"
+        },
+        "total_cycle_time": {
+          "target": 34.2,
+          "min": 32.5,
+          "max": 36,
+          "unit": "s",
+          "label": "Total Cycle Time"
+        },
+        "clamping_force": {
+          "target": 2450,
+          "min": 2380,
+          "max": 2520,
+          "unit": "kN",
+          "label": "Clamping Force"
+        },
+        "screw_speed": {
+          "target": 110,
+          "min": 100,
+          "max": 120,
+          "unit": "RPM",
+          "label": "Screw Speed"
+        },
+        "back_pressure": {
+          "target": 1.4,
+          "min": 1.1,
+          "max": 1.7,
+          "unit": "MPa",
+          "label": "Back Pressure"
+        },
+        "suck_back": {
+          "target": 4.5,
+          "min": 3.8,
+          "max": 5.2,
+          "unit": "mm",
+          "label": "Suck Back Distance"
+        },
+        "plasticizing_time": {
+          "target": 7.8,
+          "min": 7,
+          "max": 8.6,
+          "unit": "s",
+          "label": "Plasticizing Time"
+        },
+        "ejector_stroke": {
+          "target": 45,
+          "min": 43,
+          "max": 47,
+          "unit": "mm",
+          "label": "Ejector Stroke"
+        },
+        "ejector_delay": {
+          "target": 0.8,
+          "min": 0.5,
+          "max": 1.1,
+          "unit": "s",
+          "label": "Ejector Delay"
+        },
+        "hot_runner_manifold": {
+          "target": 242,
+          "min": 237,
+          "max": 247,
+          "unit": "°C",
+          "label": "Manifold Temperature"
+        },
+        "hot_runner_tip": {
+          "target": 245,
+          "min": 240,
+          "max": 250,
+          "unit": "°C",
+          "label": "Valve Gate Tip Temp"
+        }
+      }
+    },
+    {
+      "id": "REC-TRIM-04",
+      "name": "ABS Door Trim Spec v2.0",
+      "machineId": "M-HM02",
+      "product": "Door Trim Panel",
+      "mold": "Trim Mold 04",
+      "version": "2.0",
+      "approvedBy": "Dr. Sarah Lindqvist (Process Eng)",
+      "approvedAt": "2026-10-20T14:30:00",
+      "parameters": {
+        "injection_pressure": {
+          "target": 115,
+          "min": 110,
+          "max": 120,
+          "unit": "MPa",
+          "label": "Injection Pressure"
+        },
+        "injection_speed": {
+          "target": 70,
+          "min": 65,
+          "max": 75,
+          "unit": "mm/s",
+          "label": "Injection Speed"
+        },
+        "vp_switchover": {
+          "target": 18,
+          "min": 16.5,
+          "max": 19.5,
+          "unit": "mm",
+          "label": "V/P Switchover Position"
+        },
+        "shot_size": {
+          "target": 142,
+          "min": 140,
+          "max": 144,
+          "unit": "mm",
+          "label": "Shot Size"
+        },
+        "cushion": {
+          "target": 5,
+          "min": 3.5,
+          "max": 6.5,
+          "unit": "mm",
+          "label": "Cushion"
+        },
+        "temp_zone_1": {
+          "target": 215,
+          "min": 210,
+          "max": 220,
+          "unit": "°C",
+          "label": "Barrel Zone 1"
+        },
+        "temp_zone_2": {
+          "target": 225,
+          "min": 220,
+          "max": 230,
+          "unit": "°C",
+          "label": "Barrel Zone 2"
+        },
+        "temp_zone_3": {
+          "target": 230,
+          "min": 225,
+          "max": 235,
+          "unit": "°C",
+          "label": "Barrel Zone 3"
+        },
+        "temp_zone_4": {
+          "target": 235,
+          "min": 230,
+          "max": 240,
+          "unit": "°C",
+          "label": "Barrel Zone 4"
+        },
+        "nozzle_temp": {
+          "target": 240,
+          "min": 235,
+          "max": 245,
+          "unit": "°C",
+          "label": "Nozzle Temperature"
+        },
+        "oil_temp": {
+          "target": 45,
+          "min": 38,
+          "max": 50,
+          "unit": "°C",
+          "label": "Hydraulic Oil Temp"
+        },
+        "hold_pressure_1": {
+          "target": 78,
+          "min": 74,
+          "max": 82,
+          "unit": "MPa",
+          "label": "Stage 1 Hold Pressure"
+        },
+        "hold_time_1": {
+          "target": 3.5,
+          "min": 3.1,
+          "max": 3.9,
+          "unit": "s",
+          "label": "Stage 1 Hold Time"
+        },
+        "hold_pressure_2": {
+          "target": 62,
+          "min": 58,
+          "max": 66,
+          "unit": "MPa",
+          "label": "Stage 2 Hold Pressure"
+        },
+        "hold_time_2": {
+          "target": 4,
+          "min": 3.6,
+          "max": 4.4,
+          "unit": "s",
+          "label": "Stage 2 Hold Time"
+        },
+        "cooling_time": {
+          "target": 18.5,
+          "min": 17.5,
+          "max": 19.5,
+          "unit": "s",
+          "label": "Cooling Time"
+        },
+        "total_cycle_time": {
+          "target": 34.2,
+          "min": 32.5,
+          "max": 36,
+          "unit": "s",
+          "label": "Total Cycle Time"
+        },
+        "clamping_force": {
+          "target": 2450,
+          "min": 2380,
+          "max": 2520,
+          "unit": "kN",
+          "label": "Clamping Force"
+        },
+        "screw_speed": {
+          "target": 110,
+          "min": 100,
+          "max": 120,
+          "unit": "RPM",
+          "label": "Screw Speed"
+        },
+        "back_pressure": {
+          "target": 1.4,
+          "min": 1.1,
+          "max": 1.7,
+          "unit": "MPa",
+          "label": "Back Pressure"
+        },
+        "suck_back": {
+          "target": 4.5,
+          "min": 3.8,
+          "max": 5.2,
+          "unit": "mm",
+          "label": "Suck Back Distance"
+        },
+        "plasticizing_time": {
+          "target": 7.8,
+          "min": 7,
+          "max": 8.6,
+          "unit": "s",
+          "label": "Plasticizing Time"
+        },
+        "ejector_stroke": {
+          "target": 45,
+          "min": 43,
+          "max": 47,
+          "unit": "mm",
+          "label": "Ejector Stroke"
+        },
+        "ejector_delay": {
+          "target": 0.8,
+          "min": 0.5,
+          "max": 1.1,
+          "unit": "s",
+          "label": "Ejector Delay"
+        },
+        "hot_runner_manifold": {
+          "target": 242,
+          "min": 237,
+          "max": 247,
+          "unit": "°C",
+          "label": "Manifold Temperature"
+        },
+        "hot_runner_tip": {
+          "target": 245,
+          "min": 240,
+          "max": 250,
+          "unit": "°C",
+          "label": "Valve Gate Tip Temp"
+        }
+      }
+    },
+    {
+      "id": "REC-HOUSING-02",
+      "name": "PA66-GF30 Housing Spec v4.1",
+      "machineId": "M-EM03",
+      "product": "Airbag Housing",
+      "mold": "Housing Mold 02",
+      "version": "4.1",
+      "approvedBy": "Henrik Sato (QA Director)",
+      "approvedAt": "2026-11-01T09:15:00",
+      "parameters": {
+        "injection_pressure": {
+          "target": 115,
+          "min": 110,
+          "max": 120,
+          "unit": "MPa",
+          "label": "Injection Pressure"
+        },
+        "injection_speed": {
+          "target": 70,
+          "min": 65,
+          "max": 75,
+          "unit": "mm/s",
+          "label": "Injection Speed"
+        },
+        "vp_switchover": {
+          "target": 18,
+          "min": 16.5,
+          "max": 19.5,
+          "unit": "mm",
+          "label": "V/P Switchover Position"
+        },
+        "shot_size": {
+          "target": 142,
+          "min": 140,
+          "max": 144,
+          "unit": "mm",
+          "label": "Shot Size"
+        },
+        "cushion": {
+          "target": 5,
+          "min": 3.5,
+          "max": 6.5,
+          "unit": "mm",
+          "label": "Cushion"
+        },
+        "temp_zone_1": {
+          "target": 215,
+          "min": 210,
+          "max": 220,
+          "unit": "°C",
+          "label": "Barrel Zone 1"
+        },
+        "temp_zone_2": {
+          "target": 225,
+          "min": 220,
+          "max": 230,
+          "unit": "°C",
+          "label": "Barrel Zone 2"
+        },
+        "temp_zone_3": {
+          "target": 230,
+          "min": 225,
+          "max": 235,
+          "unit": "°C",
+          "label": "Barrel Zone 3"
+        },
+        "temp_zone_4": {
+          "target": 235,
+          "min": 230,
+          "max": 240,
+          "unit": "°C",
+          "label": "Barrel Zone 4"
+        },
+        "nozzle_temp": {
+          "target": 240,
+          "min": 235,
+          "max": 245,
+          "unit": "°C",
+          "label": "Nozzle Temperature"
+        },
+        "oil_temp": {
+          "target": 45,
+          "min": 38,
+          "max": 50,
+          "unit": "°C",
+          "label": "Hydraulic Oil Temp"
+        },
+        "hold_pressure_1": {
+          "target": 78,
+          "min": 74,
+          "max": 82,
+          "unit": "MPa",
+          "label": "Stage 1 Hold Pressure"
+        },
+        "hold_time_1": {
+          "target": 3.5,
+          "min": 3.1,
+          "max": 3.9,
+          "unit": "s",
+          "label": "Stage 1 Hold Time"
+        },
+        "hold_pressure_2": {
+          "target": 62,
+          "min": 58,
+          "max": 66,
+          "unit": "MPa",
+          "label": "Stage 2 Hold Pressure"
+        },
+        "hold_time_2": {
+          "target": 4,
+          "min": 3.6,
+          "max": 4.4,
+          "unit": "s",
+          "label": "Stage 2 Hold Time"
+        },
+        "cooling_time": {
+          "target": 18.5,
+          "min": 17.5,
+          "max": 19.5,
+          "unit": "s",
+          "label": "Cooling Time"
+        },
+        "total_cycle_time": {
+          "target": 34.2,
+          "min": 32.5,
+          "max": 36,
+          "unit": "s",
+          "label": "Total Cycle Time"
+        },
+        "clamping_force": {
+          "target": 2450,
+          "min": 2380,
+          "max": 2520,
+          "unit": "kN",
+          "label": "Clamping Force"
+        },
+        "screw_speed": {
+          "target": 110,
+          "min": 100,
+          "max": 120,
+          "unit": "RPM",
+          "label": "Screw Speed"
+        },
+        "back_pressure": {
+          "target": 1.4,
+          "min": 1.1,
+          "max": 1.7,
+          "unit": "MPa",
+          "label": "Back Pressure"
+        },
+        "suck_back": {
+          "target": 4.5,
+          "min": 3.8,
+          "max": 5.2,
+          "unit": "mm",
+          "label": "Suck Back Distance"
+        },
+        "plasticizing_time": {
+          "target": 7.8,
+          "min": 7,
+          "max": 8.6,
+          "unit": "s",
+          "label": "Plasticizing Time"
+        },
+        "ejector_stroke": {
+          "target": 45,
+          "min": 43,
+          "max": 47,
+          "unit": "mm",
+          "label": "Ejector Stroke"
+        },
+        "ejector_delay": {
+          "target": 0.8,
+          "min": 0.5,
+          "max": 1.1,
+          "unit": "s",
+          "label": "Ejector Delay"
+        },
+        "hot_runner_manifold": {
+          "target": 242,
+          "min": 237,
+          "max": 247,
+          "unit": "°C",
+          "label": "Manifold Temperature"
+        },
+        "hot_runner_tip": {
+          "target": 245,
+          "min": 240,
+          "max": 250,
+          "unit": "°C",
+          "label": "Valve Gate Tip Temp"
+        }
+      }
+    },
+    {
+      "id": "REC-BEZEL-07",
+      "name": "PC/ABS Instrument Bezel v1.8",
+      "machineId": "M-KM04",
+      "product": "Instrument Bezel",
+      "mold": "Bezel Mold 07",
+      "version": "1.8",
+      "approvedBy": "Dr. Sarah Lindqvist (Process Eng)",
+      "approvedAt": "2026-11-04T11:00:00",
+      "parameters": {
+        "injection_pressure": {
+          "target": 115,
+          "min": 110,
+          "max": 120,
+          "unit": "MPa",
+          "label": "Injection Pressure"
+        },
+        "injection_speed": {
+          "target": 70,
+          "min": 65,
+          "max": 75,
+          "unit": "mm/s",
+          "label": "Injection Speed"
+        },
+        "vp_switchover": {
+          "target": 18,
+          "min": 16.5,
+          "max": 19.5,
+          "unit": "mm",
+          "label": "V/P Switchover Position"
+        },
+        "shot_size": {
+          "target": 142,
+          "min": 140,
+          "max": 144,
+          "unit": "mm",
+          "label": "Shot Size"
+        },
+        "cushion": {
+          "target": 5,
+          "min": 3.5,
+          "max": 6.5,
+          "unit": "mm",
+          "label": "Cushion"
+        },
+        "temp_zone_1": {
+          "target": 215,
+          "min": 210,
+          "max": 220,
+          "unit": "°C",
+          "label": "Barrel Zone 1"
+        },
+        "temp_zone_2": {
+          "target": 225,
+          "min": 220,
+          "max": 230,
+          "unit": "°C",
+          "label": "Barrel Zone 2"
+        },
+        "temp_zone_3": {
+          "target": 230,
+          "min": 225,
+          "max": 235,
+          "unit": "°C",
+          "label": "Barrel Zone 3"
+        },
+        "temp_zone_4": {
+          "target": 235,
+          "min": 230,
+          "max": 240,
+          "unit": "°C",
+          "label": "Barrel Zone 4"
+        },
+        "nozzle_temp": {
+          "target": 240,
+          "min": 235,
+          "max": 245,
+          "unit": "°C",
+          "label": "Nozzle Temperature"
+        },
+        "oil_temp": {
+          "target": 45,
+          "min": 38,
+          "max": 50,
+          "unit": "°C",
+          "label": "Hydraulic Oil Temp"
+        },
+        "hold_pressure_1": {
+          "target": 78,
+          "min": 74,
+          "max": 82,
+          "unit": "MPa",
+          "label": "Stage 1 Hold Pressure"
+        },
+        "hold_time_1": {
+          "target": 3.5,
+          "min": 3.1,
+          "max": 3.9,
+          "unit": "s",
+          "label": "Stage 1 Hold Time"
+        },
+        "hold_pressure_2": {
+          "target": 62,
+          "min": 58,
+          "max": 66,
+          "unit": "MPa",
+          "label": "Stage 2 Hold Pressure"
+        },
+        "hold_time_2": {
+          "target": 4,
+          "min": 3.6,
+          "max": 4.4,
+          "unit": "s",
+          "label": "Stage 2 Hold Time"
+        },
+        "cooling_time": {
+          "target": 18.5,
+          "min": 17.5,
+          "max": 19.5,
+          "unit": "s",
+          "label": "Cooling Time"
+        },
+        "total_cycle_time": {
+          "target": 34.2,
+          "min": 32.5,
+          "max": 36,
+          "unit": "s",
+          "label": "Total Cycle Time"
+        },
+        "clamping_force": {
+          "target": 2450,
+          "min": 2380,
+          "max": 2520,
+          "unit": "kN",
+          "label": "Clamping Force"
+        },
+        "screw_speed": {
+          "target": 110,
+          "min": 100,
+          "max": 120,
+          "unit": "RPM",
+          "label": "Screw Speed"
+        },
+        "back_pressure": {
+          "target": 1.4,
+          "min": 1.1,
+          "max": 1.7,
+          "unit": "MPa",
+          "label": "Back Pressure"
+        },
+        "suck_back": {
+          "target": 4.5,
+          "min": 3.8,
+          "max": 5.2,
+          "unit": "mm",
+          "label": "Suck Back Distance"
+        },
+        "plasticizing_time": {
+          "target": 7.8,
+          "min": 7,
+          "max": 8.6,
+          "unit": "s",
+          "label": "Plasticizing Time"
+        },
+        "ejector_stroke": {
+          "target": 45,
+          "min": 43,
+          "max": 47,
+          "unit": "mm",
+          "label": "Ejector Stroke"
+        },
+        "ejector_delay": {
+          "target": 0.8,
+          "min": 0.5,
+          "max": 1.1,
+          "unit": "s",
+          "label": "Ejector Delay"
+        },
+        "hot_runner_manifold": {
+          "target": 242,
+          "min": 237,
+          "max": 247,
+          "unit": "°C",
+          "label": "Manifold Temperature"
+        },
+        "hot_runner_tip": {
+          "target": 245,
+          "min": 240,
+          "max": 250,
+          "unit": "°C",
+          "label": "Valve Gate Tip Temp"
+        }
+      }
+    }
+  ],
+  "screenTemplates": [
+    {
+      "id": "SCR-INJ",
+      "order": 1,
+      "code": "INJ-01",
+      "name": "Injection Parameters Screen",
+      "mandatoryByDefault": true,
+      "description": "Injection pressure, speed profile, V/P switchover position, shot size, and cushion.",
+      "sampleImageUrl": "/src/assets/images/hmi_injection_screen_1794986527412.jpg",
+      "expectedParameters": [
+        {
+          "key": "injection_pressure",
+          "label": "Injection Pressure",
+          "unit": "MPa",
+          "targetValue": 115,
+          "toleranceMin": 110,
+          "toleranceMax": 120
+        },
+        {
+          "key": "injection_speed",
+          "label": "Injection Speed",
+          "unit": "mm/s",
+          "targetValue": 70,
+          "toleranceMin": 65,
+          "toleranceMax": 75
+        },
+        {
+          "key": "vp_switchover",
+          "label": "V/P Switchover Position",
+          "unit": "mm",
+          "targetValue": 18,
+          "toleranceMin": 16.5,
+          "toleranceMax": 19.5
+        },
+        {
+          "key": "shot_size",
+          "label": "Shot Size",
+          "unit": "mm",
+          "targetValue": 142,
+          "toleranceMin": 140,
+          "toleranceMax": 144
+        },
+        {
+          "key": "cushion",
+          "label": "Cushion",
+          "unit": "mm",
+          "targetValue": 5,
+          "toleranceMin": 3.5,
+          "toleranceMax": 6.5
+        }
+      ]
+    },
+    {
+      "id": "SCR-TEMP",
+      "order": 2,
+      "code": "TMP-02",
+      "name": "Temperature Parameters Screen",
+      "mandatoryByDefault": true,
+      "description": "Barrel heating zones 1–4, nozzle setpoint/actual, hydraulic oil, and mold temperature.",
+      "sampleImageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+      "expectedParameters": [
+        {
+          "key": "temp_zone_1",
+          "label": "Barrel Zone 1",
+          "unit": "°C",
+          "targetValue": 215,
+          "toleranceMin": 210,
+          "toleranceMax": 220
+        },
+        {
+          "key": "temp_zone_2",
+          "label": "Barrel Zone 2",
+          "unit": "°C",
+          "targetValue": 225,
+          "toleranceMin": 220,
+          "toleranceMax": 230
+        },
+        {
+          "key": "temp_zone_3",
+          "label": "Barrel Zone 3",
+          "unit": "°C",
+          "targetValue": 230,
+          "toleranceMin": 225,
+          "toleranceMax": 235
+        },
+        {
+          "key": "temp_zone_4",
+          "label": "Barrel Zone 4",
+          "unit": "°C",
+          "targetValue": 235,
+          "toleranceMin": 230,
+          "toleranceMax": 240
+        },
+        {
+          "key": "nozzle_temp",
+          "label": "Nozzle Temperature",
+          "unit": "°C",
+          "targetValue": 240,
+          "toleranceMin": 235,
+          "toleranceMax": 245
+        },
+        {
+          "key": "oil_temp",
+          "label": "Hydraulic Oil Temp",
+          "unit": "°C",
+          "targetValue": 45,
+          "toleranceMin": 38,
+          "toleranceMax": 50
+        }
+      ]
+    },
+    {
+      "id": "SCR-HOLD",
+      "order": 3,
+      "code": "HLD-03",
+      "name": "Holding Pressure & Time Screen",
+      "mandatoryByDefault": true,
+      "description": "Multi-stage packing pressure profile and stage holding durations.",
+      "sampleImageUrl": "/src/assets/images/hmi_holding_screen_1794986528556.jpg",
+      "expectedParameters": [
+        {
+          "key": "hold_pressure_1",
+          "label": "Stage 1 Hold Pressure",
+          "unit": "MPa",
+          "targetValue": 78,
+          "toleranceMin": 74,
+          "toleranceMax": 82
+        },
+        {
+          "key": "hold_time_1",
+          "label": "Stage 1 Hold Time",
+          "unit": "s",
+          "targetValue": 3.5,
+          "toleranceMin": 3.1,
+          "toleranceMax": 3.9
+        },
+        {
+          "key": "hold_pressure_2",
+          "label": "Stage 2 Hold Pressure",
+          "unit": "MPa",
+          "targetValue": 62,
+          "toleranceMin": 58,
+          "toleranceMax": 66
+        },
+        {
+          "key": "hold_time_2",
+          "label": "Stage 2 Hold Time",
+          "unit": "s",
+          "targetValue": 4,
+          "toleranceMin": 3.6,
+          "toleranceMax": 4.4
+        }
+      ]
+    },
+    {
+      "id": "SCR-COOL",
+      "order": 4,
+      "code": "CYL-04",
+      "name": "Cooling Time & Cycle Time Screen",
+      "mandatoryByDefault": true,
+      "description": "Cooling duration, total cycle time, mold open/close times, and clamping force.",
+      "sampleImageUrl": "/src/assets/images/hmi_cooling_screen_1794986529929.jpg",
+      "expectedParameters": [
+        {
+          "key": "cooling_time",
+          "label": "Cooling Time",
+          "unit": "s",
+          "targetValue": 18.5,
+          "toleranceMin": 17.5,
+          "toleranceMax": 19.5
+        },
+        {
+          "key": "total_cycle_time",
+          "label": "Total Cycle Time",
+          "unit": "s",
+          "targetValue": 34.2,
+          "toleranceMin": 32.5,
+          "toleranceMax": 36
+        },
+        {
+          "key": "clamping_force",
+          "label": "Clamping Force",
+          "unit": "kN",
+          "targetValue": 2450,
+          "toleranceMin": 2380,
+          "toleranceMax": 2520
+        }
+      ]
+    },
+    {
+      "id": "SCR-PLAS",
+      "order": 5,
+      "code": "PLS-05",
+      "name": "Plasticizing & Screw Parameters Screen",
+      "mandatoryByDefault": true,
+      "description": "Screw RPM, back pressure, decompression suck-back, plasticizing time, and metering stroke.",
+      "sampleImageUrl": "/src/assets/images/hmi_plasticizing_screen_1794986527621.jpg",
+      "expectedParameters": [
+        {
+          "key": "screw_speed",
+          "label": "Screw Speed",
+          "unit": "RPM",
+          "targetValue": 110,
+          "toleranceMin": 100,
+          "toleranceMax": 120
+        },
+        {
+          "key": "back_pressure",
+          "label": "Back Pressure",
+          "unit": "MPa",
+          "targetValue": 1.4,
+          "toleranceMin": 1.1,
+          "toleranceMax": 1.7
+        },
+        {
+          "key": "suck_back",
+          "label": "Suck Back Distance",
+          "unit": "mm",
+          "targetValue": 4.5,
+          "toleranceMin": 3.8,
+          "toleranceMax": 5.2
+        },
+        {
+          "key": "plasticizing_time",
+          "label": "Plasticizing Time",
+          "unit": "s",
+          "targetValue": 7.8,
+          "toleranceMin": 7,
+          "toleranceMax": 8.6
+        }
+      ]
+    },
+    {
+      "id": "SCR-EJECT",
+      "order": 6,
+      "code": "EJC-06",
+      "name": "Core Pull & Ejector Profile Screen",
+      "mandatoryByDefault": false,
+      "description": "Optional ejector stroke, forward/retract speed, and core sequence interlocks.",
+      "sampleImageUrl": "/src/assets/images/hmi_cooling_screen_1794986529929.jpg",
+      "expectedParameters": [
+        {
+          "key": "ejector_stroke",
+          "label": "Ejector Stroke",
+          "unit": "mm",
+          "targetValue": 45,
+          "toleranceMin": 43,
+          "toleranceMax": 47
+        },
+        {
+          "key": "ejector_delay",
+          "label": "Ejector Delay",
+          "unit": "s",
+          "targetValue": 0.8,
+          "toleranceMin": 0.5,
+          "toleranceMax": 1.1
+        }
+      ]
+    },
+    {
+      "id": "SCR-HOT",
+      "order": 7,
+      "code": "HRN-07",
+      "name": "Hot Runner Manifold Screen",
+      "mandatoryByDefault": false,
+      "description": "Multi-drop hot runner manifold thermal zones for multi-cavity or automotive molds.",
+      "sampleImageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+      "expectedParameters": [
+        {
+          "key": "hot_runner_manifold",
+          "label": "Manifold Temperature",
+          "unit": "°C",
+          "targetValue": 242,
+          "toleranceMin": 237,
+          "toleranceMax": 247
+        },
+        {
+          "key": "hot_runner_tip",
+          "label": "Valve Gate Tip Temp",
+          "unit": "°C",
+          "targetValue": 245,
+          "toleranceMin": 240,
+          "toleranceMax": 250
+        }
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "HM-001-20261116-0800",
+      "machineId": "M-HM01",
+      "machineName": "Haitian M01",
+      "controllerModel": "Haitian TechMotion 320T (KEBA)",
+      "product": "Plastic Bumper",
+      "mold": "Bumper Mold 01",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-16",
+      "scheduledTime": "08:00",
+      "scheduledAtIso": "2026-11-16T08:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Marcus Chen",
+      "status": "completed",
+      "complianceState": "compliant",
+      "completionPercent": 100,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_injection_screen_1794986527412.jpg",
+          "capturedAt": "2026-11-16T08:04:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": 115.2,
+              "verifiedValue": 115.2,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": 69.5,
+              "verifiedValue": 69.5,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": 18,
+              "verifiedValue": 18,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": 142,
+              "verifiedValue": 142,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": 5,
+              "verifiedValue": 5,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-16T08:04:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": 215,
+              "verifiedValue": 215,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": 225,
+              "verifiedValue": 225,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": 230,
+              "verifiedValue": 230,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": 235,
+              "verifiedValue": 235,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": 240,
+              "verifiedValue": 240,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": 45,
+              "verifiedValue": 45,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_holding_screen_1794986528556.jpg",
+          "capturedAt": "2026-11-16T08:04:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 78,
+              "verifiedValue": 78,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": 3.5,
+              "verifiedValue": 3.5,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 62,
+              "verifiedValue": 62,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": 4,
+              "verifiedValue": 4,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_cooling_screen_1794986529929.jpg",
+          "capturedAt": "2026-11-16T08:04:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": 18.5,
+              "verifiedValue": 18.5,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": 34.2,
+              "verifiedValue": 34.2,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": 2450,
+              "verifiedValue": 2450,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_plasticizing_screen_1794986527621.jpg",
+          "capturedAt": "2026-11-16T08:04:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": 110,
+              "verifiedValue": 110,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": 1.4,
+              "verifiedValue": 1.4,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": 4.5,
+              "verifiedValue": 4.5,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": 7.8,
+              "verifiedValue": 7.8,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [],
+      "corrections": [],
+      "auditLog": [
+        {
+          "id": "AUD-101",
+          "timestamp": "2026-11-16T08:05:12",
+          "actor": "Marcus Chen",
+          "role": "operator",
+          "action": "Session Finalized",
+          "detail": "All 5 mandatory parameter screens photographed and verified within recipe tolerance."
+        }
+      ],
+      "recipeId": "REC-BUMPER-01",
+      "createdAt": "2026-11-16T06:00:00",
+      "completedAt": "2026-11-16T08:05:12",
+      "isImmutableHistorical": true
+    },
+    {
+      "id": "HM-001-20261116-1400",
+      "machineId": "M-HM01",
+      "machineName": "Haitian M01",
+      "controllerModel": "Haitian TechMotion 320T (KEBA)",
+      "product": "Plastic Bumper",
+      "mold": "Bumper Mold 01",
+      "shift": "Shift B (14:00–22:00)",
+      "scheduledDate": "2026-11-16",
+      "scheduledTime": "14:00",
+      "scheduledAtIso": "2026-11-16T14:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Liam O’Connor",
+      "status": "completed",
+      "complianceState": "deviations_detected",
+      "completionPercent": 100,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_injection_screen_1794986527412.jpg",
+          "capturedAt": "2026-11-16T14:06:00",
+          "capturedBy": "Liam O’Connor",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": 118.8,
+              "verifiedValue": 118.8,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": 68,
+              "verifiedValue": 68,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": 18,
+              "verifiedValue": 18,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": 142,
+              "verifiedValue": 142,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": 5,
+              "verifiedValue": 5,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-16T14:06:00",
+          "capturedBy": "Liam O’Connor",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": 215,
+              "verifiedValue": 215,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": 225,
+              "verifiedValue": 225,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": 230,
+              "verifiedValue": 230,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": 241.5,
+              "verifiedValue": 241.5,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": true,
+              "correctionReason": "OCR misread 241.5 as 241.6; verified against controller",
+              "verified": true,
+              "deviationFlag": "drift"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": 240,
+              "verifiedValue": 240,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": 45,
+              "verifiedValue": 45,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_holding_screen_1794986528556.jpg",
+          "capturedAt": "2026-11-16T14:06:00",
+          "capturedBy": "Liam O’Connor",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 78,
+              "verifiedValue": 78,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": 3.5,
+              "verifiedValue": 3.5,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 62,
+              "verifiedValue": 62,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": 4,
+              "verifiedValue": 4,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_cooling_screen_1794986529929.jpg",
+          "capturedAt": "2026-11-16T14:06:00",
+          "capturedBy": "Liam O’Connor",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": 18.5,
+              "verifiedValue": 18.5,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": 34.2,
+              "verifiedValue": 34.2,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": 2450,
+              "verifiedValue": 2450,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_plasticizing_screen_1794986527621.jpg",
+          "capturedAt": "2026-11-16T14:06:00",
+          "capturedBy": "Liam O’Connor",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": 110,
+              "verifiedValue": 110,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": 1.4,
+              "verifiedValue": 1.4,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": 4.5,
+              "verifiedValue": 4.5,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": 7.8,
+              "verifiedValue": 7.8,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [
+        {
+          "id": "ALM-201",
+          "timestamp": "2026-11-16T14:06:10",
+          "severity": "warning",
+          "type": "drift",
+          "parameterKey": "temp_zone_4",
+          "message": "Barrel Zone 4 (241.5 °C) exceeded upper tolerance (240.0 °C).",
+          "acknowledged": true
+        }
+      ],
+      "corrections": [
+        {
+          "id": "COR-201",
+          "timestamp": "2026-11-16T14:05:45",
+          "actor": "Liam O’Connor",
+          "role": "operator",
+          "action": "OCR Value Corrected",
+          "detail": "Barrel Zone 4 updated from 241.6 °C to 241.5 °C after visual check."
+        }
+      ],
+      "auditLog": [
+        {
+          "id": "AUD-201",
+          "timestamp": "2026-11-16T14:06:10",
+          "actor": "Liam O’Connor",
+          "role": "operator",
+          "action": "Session Finalized",
+          "detail": "Completed 5/5 screens with 1 thermal drift alarm logged."
+        }
+      ],
+      "recipeId": "REC-BUMPER-01",
+      "createdAt": "2026-11-16T12:00:00",
+      "completedAt": "2026-11-16T14:06:10",
+      "isImmutableHistorical": true
+    },
+    {
+      "id": "HM-001-20261117-0600",
+      "machineId": "M-HM01",
+      "machineName": "Haitian M01",
+      "controllerModel": "Haitian TechMotion 320T (KEBA)",
+      "product": "Plastic Bumper",
+      "mold": "Bumper Mold 01",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-17",
+      "scheduledTime": "06:00",
+      "scheduledAtIso": "2026-11-17T06:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Marcus Chen",
+      "status": "completed",
+      "complianceState": "deviations_detected",
+      "completionPercent": 100,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_injection_screen_1794986527412.jpg",
+          "capturedAt": "2026-11-17T06:07:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": 123.4,
+              "verifiedValue": 123.4,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "sudden_change"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": 68,
+              "verifiedValue": 68,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": 18.5,
+              "verifiedValue": 18.5,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": 142,
+              "verifiedValue": 142,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": 5.2,
+              "verifiedValue": 5.2,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-17T06:07:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": 215,
+              "verifiedValue": 215,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": 225,
+              "verifiedValue": 225,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": 230,
+              "verifiedValue": 230,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": 242.2,
+              "verifiedValue": 242.2,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "repeated_deviation"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": 240,
+              "verifiedValue": 240,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": 45,
+              "verifiedValue": 45,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_holding_screen_1794986528556.jpg",
+          "capturedAt": "2026-11-17T06:07:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 78,
+              "verifiedValue": 78,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": 3.5,
+              "verifiedValue": 3.5,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 62,
+              "verifiedValue": 62,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": 4,
+              "verifiedValue": 4,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_cooling_screen_1794986529929.jpg",
+          "capturedAt": "2026-11-17T06:07:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": 18.5,
+              "verifiedValue": 18.5,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": 34.2,
+              "verifiedValue": 34.2,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": 2450,
+              "verifiedValue": 2450,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_plasticizing_screen_1794986527621.jpg",
+          "capturedAt": "2026-11-17T06:07:00",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": 110,
+              "verifiedValue": 110,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": 1.4,
+              "verifiedValue": 1.4,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": 4.5,
+              "verifiedValue": 4.5,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": 7.8,
+              "verifiedValue": 7.8,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [
+        {
+          "id": "ALM-301",
+          "timestamp": "2026-11-17T06:07:05",
+          "severity": "critical",
+          "type": "sudden_change",
+          "parameterKey": "injection_pressure",
+          "message": "Injection Pressure jumped to 123.4 MPa (+8.4 MPa vs recipe target 115.0 MPa).",
+          "acknowledged": false
+        },
+        {
+          "id": "ALM-302",
+          "timestamp": "2026-11-17T06:07:05",
+          "severity": "warning",
+          "type": "repeated_deviation",
+          "parameterKey": "temp_zone_4",
+          "message": "Barrel Zone 4 (242.2 °C) repeated thermal deviation across consecutive shifts.",
+          "acknowledged": false
+        }
+      ],
+      "corrections": [],
+      "auditLog": [
+        {
+          "id": "AUD-301",
+          "timestamp": "2026-11-17T06:07:05",
+          "actor": "Marcus Chen",
+          "role": "operator",
+          "action": "Session Finalized",
+          "detail": "Completed 5/5 screens. Two parameter deviations flagged for engineering review."
+        }
+      ],
+      "recipeId": "REC-BUMPER-01",
+      "createdAt": "2026-11-17T05:30:00",
+      "completedAt": "2026-11-17T06:07:05",
+      "isImmutableHistorical": true
+    },
+    {
+      "id": "HM-002-20261117-0600",
+      "machineId": "M-HM02",
+      "machineName": "Haitian M02",
+      "controllerModel": "Haitian Mars III 450T (Techmation)",
+      "product": "Door Trim Panel",
+      "mold": "Trim Mold 04",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-17",
+      "scheduledTime": "06:00",
+      "scheduledAtIso": "2026-11-17T06:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Elena Rostova",
+      "status": "completed",
+      "complianceState": "compliant",
+      "completionPercent": 100,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_injection_screen_1794986527412.jpg",
+          "capturedAt": "2026-11-17T06:11:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": 115,
+              "verifiedValue": 115,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": 70,
+              "verifiedValue": 70,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": 18,
+              "verifiedValue": 18,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": 142,
+              "verifiedValue": 142,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": 5,
+              "verifiedValue": 5,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-17T06:11:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": 215,
+              "verifiedValue": 215,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": 225,
+              "verifiedValue": 225,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": 230,
+              "verifiedValue": 230,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": 235,
+              "verifiedValue": 235,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": 240,
+              "verifiedValue": 240,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": 45,
+              "verifiedValue": 45,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_holding_screen_1794986528556.jpg",
+          "capturedAt": "2026-11-17T06:11:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 78,
+              "verifiedValue": 78,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": 3.5,
+              "verifiedValue": 3.5,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 62,
+              "verifiedValue": 62,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": 4,
+              "verifiedValue": 4,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_cooling_screen_1794986529929.jpg",
+          "capturedAt": "2026-11-17T06:11:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": 18.5,
+              "verifiedValue": 18.5,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": 34.2,
+              "verifiedValue": 34.2,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": 2450,
+              "verifiedValue": 2450,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_plasticizing_screen_1794986527621.jpg",
+          "capturedAt": "2026-11-17T06:11:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": 110,
+              "verifiedValue": 110,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": 1.4,
+              "verifiedValue": 1.4,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": 4.5,
+              "verifiedValue": 4.5,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": 7.8,
+              "verifiedValue": 7.8,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOT",
+          "screenName": "Hot Runner Manifold Screen",
+          "order": 6,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-17T06:11:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "hot_runner_manifold",
+              "label": "Manifold Temperature",
+              "unit": "°C",
+              "extractedValue": 242,
+              "verifiedValue": 242,
+              "approvedTarget": 242,
+              "toleranceMin": 237,
+              "toleranceMax": 247,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hot_runner_tip",
+              "label": "Valve Gate Tip Temp",
+              "unit": "°C",
+              "extractedValue": 245,
+              "verifiedValue": 245,
+              "approvedTarget": 245,
+              "toleranceMin": 240,
+              "toleranceMax": 250,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [],
+      "corrections": [],
+      "auditLog": [
+        {
+          "id": "AUD-302",
+          "timestamp": "2026-11-17T06:11:20",
+          "actor": "Elena Rostova",
+          "role": "operator",
+          "action": "Session Finalized",
+          "detail": "All 6 mandatory screens verified and compliant."
+        }
+      ],
+      "recipeId": "REC-TRIM-04",
+      "createdAt": "2026-11-17T05:30:00",
+      "completedAt": "2026-11-17T06:11:20",
+      "isImmutableHistorical": true
+    },
+    {
+      "id": "HM-001-20261117-0800",
+      "machineId": "M-HM01",
+      "machineName": "Haitian M01",
+      "controllerModel": "Haitian TechMotion 320T (KEBA)",
+      "product": "Plastic Bumper",
+      "mold": "Bumper Mold 01",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-17",
+      "scheduledTime": "08:00",
+      "scheduledAtIso": "2026-11-17T08:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Marcus Chen",
+      "status": "completed",
+      "complianceState": "compliant",
+      "completionPercent": 100,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_injection_screen_1794986527412.jpg",
+          "capturedAt": "2026-11-17T08:03:10",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": 115.4,
+              "verifiedValue": 115.4,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": 68,
+              "verifiedValue": 68,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": 18.5,
+              "verifiedValue": 18.5,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": 142,
+              "verifiedValue": 142,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": 5.2,
+              "verifiedValue": 5.2,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-17T08:04:05",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": 215,
+              "verifiedValue": 215,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": 225,
+              "verifiedValue": 225,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": 230,
+              "verifiedValue": 230,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": 235,
+              "verifiedValue": 235,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": 240,
+              "verifiedValue": 240,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": 45,
+              "verifiedValue": 45,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_holding_screen_1794986528556.jpg",
+          "capturedAt": "2026-11-17T08:05:12",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 78,
+              "verifiedValue": 78,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": 3.5,
+              "verifiedValue": 3.5,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 62,
+              "verifiedValue": 62,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": 4,
+              "verifiedValue": 4,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_cooling_screen_1794986529929.jpg",
+          "capturedAt": "2026-11-18T07:28:28",
+          "capturedBy": "Marcus Chen",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": 18.5,
+              "verifiedValue": 18.5,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": 34.2,
+              "verifiedValue": 34.2,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": 2450,
+              "verifiedValue": 2450,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "completed",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": 110,
+              "verifiedValue": 110,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": 1.4,
+              "verifiedValue": 1.4,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": 4.5,
+              "verifiedValue": 4.5,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": 7.8,
+              "verifiedValue": 7.8,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0,
+          "imageUrl": "/src/assets/images/hmi_plasticizing_screen_1794986527621.jpg",
+          "capturedAt": "2026-11-18T07:30:03",
+          "capturedBy": "Marcus Chen"
+        }
+      ],
+      "alarms": [],
+      "corrections": [],
+      "auditLog": [
+        {
+          "id": "AUD-401",
+          "timestamp": "2026-11-17T08:03:10",
+          "actor": "Marcus Chen",
+          "role": "operator",
+          "action": "Screen Verified",
+          "detail": "Screen 1 (Injection Parameters Screen) captured & verified."
+        },
+        {
+          "id": "AUD-402",
+          "timestamp": "2026-11-17T08:04:05",
+          "actor": "Marcus Chen",
+          "role": "operator",
+          "action": "Screen Verified",
+          "detail": "Screen 2 (Temperature Parameters Screen) captured & verified."
+        },
+        {
+          "id": "AUD-403",
+          "timestamp": "2026-11-17T08:05:12",
+          "actor": "Marcus Chen",
+          "role": "operator",
+          "action": "Screen Verified",
+          "detail": "Screen 3 (Holding Pressure & Time Screen) captured & verified."
+        },
+        {
+          "id": "AUD-1794986908267",
+          "timestamp": "2026-11-18T07:28:28",
+          "actor": "Marcus Chen",
+          "role": "operator",
+          "action": "Screen Verified",
+          "detail": "Cooling Time & Cycle Time Screen verified and marked completed."
+        },
+        {
+          "id": "AUD-1794987003938",
+          "timestamp": "2026-11-18T07:30:03",
+          "actor": "Marcus Chen",
+          "role": "operator",
+          "action": "Screen Verified",
+          "detail": "Plasticizing & Screw Parameters Screen verified and marked completed."
+        },
+        {
+          "id": "AUD-1794987004004",
+          "timestamp": "2026-11-18T07:30:04",
+          "actor": "Marcus Chen",
+          "role": "operator",
+          "action": "Session Finalized & Locked",
+          "detail": "Completed with compliance state: compliant. Historical record sealed."
+        }
+      ],
+      "recipeId": "REC-BUMPER-01",
+      "createdAt": "2026-11-17T07:45:00",
+      "isImmutableHistorical": true,
+      "completedAt": "2026-11-18T07:30:04"
+    },
+    {
+      "id": "HM-002-20261117-0800",
+      "machineId": "M-HM02",
+      "machineName": "Haitian M02",
+      "controllerModel": "Haitian Mars III 450T (Techmation)",
+      "product": "Door Trim Panel",
+      "mold": "Trim Mold 04",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-17",
+      "scheduledTime": "08:00",
+      "scheduledAtIso": "2026-11-17T08:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Elena Rostova",
+      "status": "completed",
+      "complianceState": "deviations_detected",
+      "completionPercent": 100,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_injection_screen_1794986527412.jpg",
+          "capturedAt": "2026-11-17T08:12:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": 115,
+              "verifiedValue": 115,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": 70,
+              "verifiedValue": 70,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": 18,
+              "verifiedValue": 18,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": 142,
+              "verifiedValue": 142,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": 5,
+              "verifiedValue": 5,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-17T08:12:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": 215,
+              "verifiedValue": 215,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": 225,
+              "verifiedValue": 225,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": 230,
+              "verifiedValue": 230,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": 235,
+              "verifiedValue": 235,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": 240,
+              "verifiedValue": 240,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": 45,
+              "verifiedValue": 45,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_holding_screen_1794986528556.jpg",
+          "capturedAt": "2026-11-17T08:12:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 78,
+              "verifiedValue": 78,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": 3.5,
+              "verifiedValue": 3.5,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": 62,
+              "verifiedValue": 62,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": 4,
+              "verifiedValue": 4,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_cooling_screen_1794986529929.jpg",
+          "capturedAt": "2026-11-17T08:12:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": 23.8,
+              "verifiedValue": 23.8,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "unauthorized_recipe"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": 39.5,
+              "verifiedValue": 39.5,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "drift"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": 2450,
+              "verifiedValue": 2450,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_plasticizing_screen_1794986527621.jpg",
+          "capturedAt": "2026-11-17T08:12:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": 110,
+              "verifiedValue": 110,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": 1.4,
+              "verifiedValue": 1.4,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": 4.5,
+              "verifiedValue": 4.5,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": 7.8,
+              "verifiedValue": 7.8,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOT",
+          "screenName": "Hot Runner Manifold Screen",
+          "order": 6,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-17T08:12:00",
+          "capturedBy": "Elena Rostova",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "hot_runner_manifold",
+              "label": "Manifold Temperature",
+              "unit": "°C",
+              "extractedValue": 242,
+              "verifiedValue": 242,
+              "approvedTarget": 242,
+              "toleranceMin": 237,
+              "toleranceMax": 247,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hot_runner_tip",
+              "label": "Valve Gate Tip Temp",
+              "unit": "°C",
+              "extractedValue": 245,
+              "verifiedValue": 245,
+              "approvedTarget": 245,
+              "toleranceMin": 240,
+              "toleranceMax": 250,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [
+        {
+          "id": "ALM-402",
+          "timestamp": "2026-11-17T08:12:05",
+          "severity": "critical",
+          "type": "unauthorized_recipe",
+          "parameterKey": "cooling_time",
+          "message": "Cooling Time (23.8 s) deviates +28.6% from approved recipe (18.5 s) — Unauthorized Recipe Change suspected.",
+          "acknowledged": false
+        }
+      ],
+      "corrections": [],
+      "auditLog": [
+        {
+          "id": "AUD-404",
+          "timestamp": "2026-11-17T08:12:05",
+          "actor": "Elena Rostova",
+          "role": "operator",
+          "action": "Session Finalized",
+          "detail": "Completed 6/6 screens; critical unauthorized recipe alert triggered."
+        }
+      ],
+      "recipeId": "REC-TRIM-04",
+      "createdAt": "2026-11-17T07:45:00",
+      "completedAt": "2026-11-17T08:12:05",
+      "isImmutableHistorical": true
+    },
+    {
+      "id": "EM-003-20261117-0800",
+      "machineId": "M-EM03",
+      "machineName": "Engel E03",
+      "controllerModel": "Engel CC300 e-mac 180",
+      "product": "Airbag Housing",
+      "mold": "Housing Mold 02",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-17",
+      "scheduledTime": "08:00",
+      "scheduledAtIso": "2026-11-17T08:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "David Kim",
+      "status": "overdue",
+      "complianceState": "non_compliant_missing",
+      "completionPercent": 25,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "completed",
+          "imageUrl": "/src/assets/images/hmi_injection_screen_1794986527412.jpg",
+          "capturedAt": "2026-11-17T08:18:00",
+          "capturedBy": "David Kim",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": 115,
+              "verifiedValue": 115,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": 70,
+              "verifiedValue": 70,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": 18,
+              "verifiedValue": 18,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": 142,
+              "verifiedValue": 142,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": 5,
+              "verifiedValue": 5,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": true,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "captured_unverified",
+          "imageUrl": "/src/assets/images/hmi_temperature_screen_1794986526993.jpg",
+          "capturedAt": "2026-11-17T08:19:10",
+          "capturedBy": "David Kim",
+          "ocrStatus": "extracted",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": 215,
+              "verifiedValue": 215,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": 225,
+              "verifiedValue": 225,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": 230,
+              "verifiedValue": 230,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": 235,
+              "verifiedValue": 235,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": 240,
+              "verifiedValue": 240,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": 44.2,
+              "verifiedValue": 44.2,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0.97,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [
+        {
+          "id": "ALM-OVR-EM003",
+          "timestamp": "2026-11-17T08:21:00",
+          "severity": "warning",
+          "type": "overdue",
+          "message": "Session overdue past 20 min grace window (Assigned: David Kim). 2 screens pending, 1 unverified OCR screen.",
+          "acknowledged": false
+        }
+      ],
+      "corrections": [],
+      "auditLog": [
+        {
+          "id": "AUD-405",
+          "timestamp": "2026-11-17T08:21:00",
+          "actor": "System Scheduler",
+          "role": "administrator",
+          "action": "Overdue Notice Generated",
+          "detail": "Grace period (20 min) elapsed with 1/4 mandatory screens verified."
+        }
+      ],
+      "recipeId": "REC-HOUSING-02",
+      "createdAt": "2026-11-17T07:45:00",
+      "isImmutableHistorical": false
+    },
+    {
+      "id": "KM-004-20261117-0600",
+      "machineId": "M-KM04",
+      "machineName": "KraussMaffei KM04",
+      "controllerModel": "KraussMaffei MC6 PX-200",
+      "product": "Instrument Bezel",
+      "mold": "Bezel Mold 07",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-17",
+      "scheduledTime": "06:00",
+      "scheduledAtIso": "2026-11-17T06:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Priya Nair",
+      "status": "missed",
+      "complianceState": "non_compliant_missing",
+      "completionPercent": 0,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [
+        {
+          "id": "ALM-OVR-KM004",
+          "timestamp": "2026-11-17T08:00:00",
+          "severity": "warning",
+          "type": "overdue",
+          "message": "Missed monitoring session recorded for KraussMaffei KM04 (Operator: Priya Nair). Logged as missed compliance check, not a process deviation.",
+          "acknowledged": false
+        }
+      ],
+      "corrections": [],
+      "auditLog": [
+        {
+          "id": "AUD-406",
+          "timestamp": "2026-11-17T08:00:00",
+          "actor": "System Scheduler",
+          "role": "administrator",
+          "action": "Missed Session Recorded",
+          "detail": "Next scheduled slot began before 06:00 session was captured."
+        }
+      ],
+      "recipeId": "REC-BEZEL-07",
+      "createdAt": "2026-11-17T05:30:00",
+      "isImmutableHistorical": true
+    },
+    {
+      "id": "HM-001-20261117-1000",
+      "machineId": "M-HM01",
+      "machineName": "Haitian M01",
+      "controllerModel": "Haitian TechMotion 320T (KEBA)",
+      "product": "Plastic Bumper",
+      "mold": "Bumper Mold 01",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-17",
+      "scheduledTime": "10:00",
+      "scheduledAtIso": "2026-11-17T10:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Marcus Chen",
+      "status": "scheduled",
+      "complianceState": "pending",
+      "completionPercent": 0,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [],
+      "corrections": [],
+      "auditLog": [],
+      "recipeId": "REC-BUMPER-01",
+      "createdAt": "2026-11-17T06:00:00",
+      "isImmutableHistorical": false
+    },
+    {
+      "id": "HM-001-20261117-1200",
+      "machineId": "M-HM01",
+      "machineName": "Haitian M01",
+      "controllerModel": "Haitian TechMotion 320T (KEBA)",
+      "product": "Plastic Bumper",
+      "mold": "Bumper Mold 01",
+      "shift": "Shift A (06:00–14:00)",
+      "scheduledDate": "2026-11-17",
+      "scheduledTime": "12:00",
+      "scheduledAtIso": "2026-11-17T12:00:00",
+      "gracePeriodMinutes": 20,
+      "assignedOperator": "Marcus Chen",
+      "status": "scheduled",
+      "complianceState": "pending",
+      "completionPercent": 0,
+      "screens": [
+        {
+          "screenId": "SCR-INJ",
+          "screenName": "Injection Parameters Screen",
+          "order": 1,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "injection_pressure",
+              "label": "Injection Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 115,
+              "toleranceMin": 110,
+              "toleranceMax": 120,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "injection_speed",
+              "label": "Injection Speed",
+              "unit": "mm/s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 70,
+              "toleranceMin": 65,
+              "toleranceMax": 75,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "vp_switchover",
+              "label": "V/P Switchover Position",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 18,
+              "toleranceMin": 16.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "shot_size",
+              "label": "Shot Size",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 142,
+              "toleranceMin": 140,
+              "toleranceMax": 144,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "cushion",
+              "label": "Cushion",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 5,
+              "toleranceMin": 3.5,
+              "toleranceMax": 6.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-TEMP",
+          "screenName": "Temperature Parameters Screen",
+          "order": 2,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "temp_zone_1",
+              "label": "Barrel Zone 1",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 215,
+              "toleranceMin": 210,
+              "toleranceMax": 220,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_2",
+              "label": "Barrel Zone 2",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 225,
+              "toleranceMin": 220,
+              "toleranceMax": 230,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_3",
+              "label": "Barrel Zone 3",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 230,
+              "toleranceMin": 225,
+              "toleranceMax": 235,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "temp_zone_4",
+              "label": "Barrel Zone 4",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 235,
+              "toleranceMin": 230,
+              "toleranceMax": 240,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "nozzle_temp",
+              "label": "Nozzle Temperature",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 240,
+              "toleranceMin": 235,
+              "toleranceMax": 245,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "oil_temp",
+              "label": "Hydraulic Oil Temp",
+              "unit": "°C",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 45,
+              "toleranceMin": 38,
+              "toleranceMax": 50,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-HOLD",
+          "screenName": "Holding Pressure & Time Screen",
+          "order": 3,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "hold_pressure_1",
+              "label": "Stage 1 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 78,
+              "toleranceMin": 74,
+              "toleranceMax": 82,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_1",
+              "label": "Stage 1 Hold Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 3.5,
+              "toleranceMin": 3.1,
+              "toleranceMax": 3.9,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_pressure_2",
+              "label": "Stage 2 Hold Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 62,
+              "toleranceMin": 58,
+              "toleranceMax": 66,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "hold_time_2",
+              "label": "Stage 2 Hold Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 4,
+              "toleranceMin": 3.6,
+              "toleranceMax": 4.4,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-COOL",
+          "screenName": "Cooling Time & Cycle Time Screen",
+          "order": 4,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "cooling_time",
+              "label": "Cooling Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 18.5,
+              "toleranceMin": 17.5,
+              "toleranceMax": 19.5,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "total_cycle_time",
+              "label": "Total Cycle Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 34.2,
+              "toleranceMin": 32.5,
+              "toleranceMax": 36,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "clamping_force",
+              "label": "Clamping Force",
+              "unit": "kN",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 2450,
+              "toleranceMin": 2380,
+              "toleranceMax": 2520,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        },
+        {
+          "screenId": "SCR-PLAS",
+          "screenName": "Plasticizing & Screw Parameters Screen",
+          "order": 5,
+          "mandatory": true,
+          "status": "pending",
+          "ocrStatus": "idle",
+          "readings": [
+            {
+              "key": "screw_speed",
+              "label": "Screw Speed",
+              "unit": "RPM",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 110,
+              "toleranceMin": 100,
+              "toleranceMax": 120,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "back_pressure",
+              "label": "Back Pressure",
+              "unit": "MPa",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 1.4,
+              "toleranceMin": 1.1,
+              "toleranceMax": 1.7,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "suck_back",
+              "label": "Suck Back Distance",
+              "unit": "mm",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 4.5,
+              "toleranceMin": 3.8,
+              "toleranceMax": 5.2,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            },
+            {
+              "key": "plasticizing_time",
+              "label": "Plasticizing Time",
+              "unit": "s",
+              "extractedValue": null,
+              "verifiedValue": null,
+              "approvedTarget": 7.8,
+              "toleranceMin": 7,
+              "toleranceMax": 8.6,
+              "ocrConfidence": 0,
+              "manuallyCorrected": false,
+              "verified": false,
+              "deviationFlag": "none"
+            }
+          ],
+          "retakeCount": 0
+        }
+      ],
+      "alarms": [],
+      "corrections": [],
+      "auditLog": [],
+      "recipeId": "REC-BUMPER-01",
+      "createdAt": "2026-11-17T06:00:00",
+      "isImmutableHistorical": false
+    }
+  ]
+}
